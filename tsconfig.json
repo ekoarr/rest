@@ -2,7 +2,8 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "@config/*": ["config/*"]
+      "@config/*": ["config/*"],
+      "@interfaces/*": ["interfaces/*"]
     },
     "module": "commonjs",
     "target": "es2015",                   /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */

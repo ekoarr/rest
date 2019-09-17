@@ -3,8 +3,23 @@ import * as Koa from 'koa';
 import 'module-alias/register';
 import * as Router from 'koa-router';
 import Server from "./rest/server";
-import { createServer } from 'http';
 import { env } from '@config/globals';
-const app = new Server().app;
-app.listen(env.NODE_PORT);
+import { logger } from '@config/logger';
+try {
+  const app = new Server({
+    middlewares: {
+      bodyParser: {
+        enableTypes: ['json'],
+        jsonLimit: '10mb'
+      }
+    }
+  })
+  app.use(async ctx => {
+    logger.info(`aionic-core node server is listening on port ${env.NODE_PORT} in ${env.NODE_ENV} mode`);
+    ctx.body = 'Hello World';
+  });
+  app.listen(env.NODE_PORT);
+} catch (err) {
+  logger.error(err.stack);
+}
 
