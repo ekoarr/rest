@@ -18,8 +18,9 @@ try {
     logger.info(`aionic-core node server is listening on port ${env.NODE_PORT} in ${env.NODE_ENV} mode`);
     ctx.body = 'Hello World';
   });
-  app.listen(env.NODE_PORT);
+  app.listen(3000);
 } catch (err) {
+  console.log(err)
   logger.error(err.stack);
 }
 

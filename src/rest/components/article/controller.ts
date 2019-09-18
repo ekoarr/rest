@@ -1,7 +1,11 @@
-export function post() {
-
+function getArticles() {
+  console.log('get Articles');
 }
 
-export function get() {
-  
+function insertArticle() {
+
+}
+export {
+  getArticles,
+  insertArticle
 }
