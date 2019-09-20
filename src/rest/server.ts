@@ -6,14 +6,17 @@ import { Server } from 'http';
 import { logger } from '@config/logger';
 import { MIDDLEWARES, CONFIG} from '@interfaces/type';
 import * as routers from './routes';
+import bodyParser = require("koa-bodyparser");
+
 export default class App extends Koa {
   readonly servers: Server[];
 
   public constructor({middlewares}: CONFIG) {
     super();
     this.servers = [];
-    this._configureRoutes();
     this._configureMiddlewares(middlewares);
+
+    this._configureRoutes();
   }
 
   private _configureRoutes(): void {
@@ -26,7 +29,10 @@ export default class App extends Koa {
   private _configureMiddlewares(middlewareConfig: MIDDLEWARES): void {
     for (const name in middlewares) {
       logger.info(`Middleware '${name}' is Loaded~`);
-      this.use(middlewares[name](middlewareConfig[name]));
+      this.use(middlewares[name]());
     }
+  }
+
+  private _configureValiator():void {
   }
 }
