@@ -1,5 +1,6 @@
-function getArticles() {
-  console.log('get Articles');
+function getArticles(ctx, next) {
+ctx.app.emit('error', 'errrr', ctx);
+  
 }
 
 function insertArticle() {

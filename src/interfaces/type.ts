@@ -6,6 +6,10 @@ interface CONFIG {
     middlewares: MIDDLEWARES
 }
 
+interface Array {
+  remove(item:any):void;
+}
+
 interface JOI_SCHEMA {
   body? : Object
   headers? : Object,
@@ -16,5 +20,6 @@ interface JOI_SCHEMA {
 export {
   MIDDLEWARES,
   CONFIG,
+  Array,
   JOI_SCHEMA
 }

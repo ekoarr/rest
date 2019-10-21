@@ -1,4 +1,4 @@
-import { createLogger, format, transports } from 'winston';
+import { createLogger, format, transports, addColors} from 'winston';
 import { join } from 'path';
 import { existsSync, mkdirSync } from 'fs';
 import { env } from "@config/globals";
@@ -8,23 +8,31 @@ if(!existsSync(logDir)){
   mkdirSync(logDir);
 }
 const filename = join(logDir, 'error.log');
+addColors({
+  error: 'red',
+  warn: 'yellow',
+  info: 'cyan',
+  debug: 'green'
+});
 
-export const logger = createLogger({
+let _logger = createLogger({
+  level: 'debug',
+  defaultMeta: { service: 'user-service' },
+  transports: [
+    new transports.Console(),
+  ],
   format: format.combine(
-		format.timestamp({
-			format: 'DD-MM-YYYY HH:mm:ss'
-		}),
-		format.printf((info) => `${info.timestamp} ${info.level}: ${info.message}`)
-	),
-	level: env.NODE_ENV === 'development' ? 'debug' : 'info',
-	transports: [
-		new transports.Console({
-			format: format.combine(
-				format.colorize(),
-				format.printf((info) => `test`)
-			),
-			level: 'info'
-		}),
-		new transports.File({ filename, level: 'error' })
-	]
-})
+    format.colorize({ all: true }),
+    format.simple()
+  )
+});
+
+
+// if (process.env.NODE_ENV !== 'production') {
+//   _logger.add(new transports.Console({
+//     level: 'debug',
+//     format: format.simple()
+//   }));
+// }
+
+export const logger = _logger;
