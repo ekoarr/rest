@@ -7,10 +7,9 @@ describe('User API', () => {
      request = supertest(server);
   });
   afterAll( () => {
+    server.close();
   });
   
-
-
   const throwIfError = (err, res) => { if (err) throw err }
   it('Article get request',   (done) => {
      request

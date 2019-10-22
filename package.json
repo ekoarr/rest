@@ -25,7 +25,8 @@
   "_moduleAliases": {
     "@config": "<rootDir>/src/config",
     "@interfaces": "<rootDir>/src/interfaces",
-    "@services": "<rootDir>/src/services"
+    "@services": "<rootDir>/src/services",
+    "@components": "<rootDir>/src/rest/components"
   },
   "dependencies": {
     "@types/express": "^4.17.1",

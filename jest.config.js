@@ -8,6 +8,7 @@ module.exports = {
   "moduleNameMapper": {
     "@config/(.*)": "<rootDir>/src/config/$1",
     "@interfaces/(.*)": "<rootDir>/src/interfaces/$1",
-    "@services/(.*)": "<rootDir>/src/services/$1"
+    "@services/(.*)": "<rootDir>/src/services/$1",
+    "@components/(.*)": "<rootDir>/src/rest/components/$1"
   }
 }

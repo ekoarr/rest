@@ -1,28 +1,27 @@
-import * as  Joi from 'Joi';
-import { JOI_SCHEMA } from "@interfaces/type";
+import * as fs from "fs";
+import { env } from "@config/globals";
+import * as path from 'path';
+const { COMPONENT } = env.PATH;
+const Compose = (...functions) => args => functions.reduce((arg, fn) => fn(arg), args);
+const WalkDir = (fs: any, dir: string) => {
+  const folders = Compose((dir) => fs.readdirSync(dir)
+  , (dirsArr) => { 
+    return dirsArr.filter((file) => {
+      return file.indexOf('.') == -1;
+    }) 
+  })(COMPONENT);
+  console.log(folders);
 
-function validateObj(object: Object = {}, label: string, schema: JOI_SCHEMA, options?: Object) {
-  if (schema) {
-    const { error, value } = Joi.validate(object, schema, options);
-    if (error) throw new Error(`Invalida ${label} - ${error.message}`);
+  for(const folder of folders){
+    Compose(()=> fs.readdirSync(dir), (dirsArr)=>{ 
+      
+    })
   }
-}
-
-const validate = (ValidationObj: JOI_SCHEMA) => {
-  return (ctx, next) => {
-    try {
-      validateObj(ctx.headers, 'Headers', ValidationObj.headers, {allowUnknown: true});
-      validateObj(ctx.params, 'URL Paramters', ValidationObj.parmas);
-      if(ctx.query)validateObj(ctx.query, 'URL Query', ValidationObj.query);
-      if (ctx.body) validateObj(ctx.request.body, 'Request body', ValidationObj.body);
-      return next();
-    } catch (err) { 
-      ctx.throw(400, err.message);
-    }
-  }
+  return folders;
 }
 
 
 export {
-  validate
+  Compose,
+  WalkDir
 }
