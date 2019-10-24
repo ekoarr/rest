@@ -5,5 +5,6 @@ describe('Helper testing', () => {
   it('Compose function',   (done) => {
     var folders = MYSQL();
     console.log(folders);
+    //expect(folders).toBe('object');
   })
 });

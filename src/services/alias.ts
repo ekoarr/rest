@@ -20,6 +20,8 @@ Array.prototype.draw = function(){
   return this[Math.floor(Math.random() * this.length)];
 }
 
+
+
 // Date.prototype.toJSON = function() {
 //   return moment(this).isValid() ? moment(this).utcOffset(8).format('YYYY-MM-DD HH:mm:ss') : null;
 
