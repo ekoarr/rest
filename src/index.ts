@@ -14,10 +14,8 @@ const app:Server = new Server({
   }
 });
 
-var _server = null;
-
 try {
- 
+ console.log('excute order json response')
 
   app.use(async ctx => {
     logger.debug({
@@ -31,5 +29,5 @@ try {
   logger.error(err.stack);
 }
 
-export default _server;
+export default app;
 

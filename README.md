@@ -2,10 +2,22 @@
 
 ___
 
+## Model
+To create an new project you will need to init sequelize model. Please  read [Sequelize migrations](https://sequelize.org/v5/manual/migrations.html "Sequelize migrations") for futher information. Once you finished your database initiation,  modify  ```smaple/example.js```  and copy into your ```rest/component/<something>``` folder 
+  
+
 ## Module-alias
 
-Alias used in this project
+module alias 
 
+```
+  // "_moduleAliases": {
+  //   "@config": "<rootDir>/src/config",
+  //   "@interfaces": "<rootDir>/src/interfaces",
+  //   "@services": "<rootDir>/src/services",
+  //   "@components": "<rootDir>/src/rest/components"
+  // },
+  ```
 | Alias     |
 |-----------|
 | @config   |

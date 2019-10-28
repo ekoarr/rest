@@ -1,17 +1,25 @@
-export const db = {
+export default {
   DEV: {
     MYSQL: {
-      user: '',
+      username: 'root',
       password: '',
-      database: '',
+      database: 'database_development',
+      host: '127.0.0.1' , 
+      logging:false ,
+      timezone: "+8:00",
+      dialect: "mysql",
       port: 3306
     }
   },
   PROD: {
     MYSQL: {
-      user: '',
+      username: 'root',
       password: '',
-      database: '',
+      database: 'database_development',
+      host: '127.0.0.1' , 
+      logging:false ,
+      timezone: "+8:00",
+      dialect: "mysql",
       port: 3306
     }
   }

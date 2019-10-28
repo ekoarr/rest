@@ -4,10 +4,10 @@ import server from './../index';
 describe('User API', () => {
   let request = null;
   beforeAll( () => {
-     request = supertest(server);
+     request = supertest(server.callback());
   });
   afterAll( () => {
-    server.close();
+   // server.close();
   });
   
   const throwIfError = (err, res) => { if (err) throw err }

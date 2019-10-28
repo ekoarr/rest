@@ -8,7 +8,6 @@ import { MIDDLEWARES, CONFIG} from '@interfaces/type';
 import  errorHandler from '@services/errorHandler';
 import * as routers from './routes';
 import bodyParser = require("koa-bodyparser");
-
 export default class App extends Koa {
   readonly servers: Server[];
 
