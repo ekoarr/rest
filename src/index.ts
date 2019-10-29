@@ -1,7 +1,5 @@
 
-import * as Koa from 'koa';
 import 'module-alias/register';
-import * as Router from 'koa-router';
 import Server from "./rest/server";
 import { env } from '@config/globals';
 import { logger } from '@config/logger';
@@ -13,7 +11,6 @@ const app:Server = new Server({
     }
   }
 });
-
 try {
  console.log('excute order json response')
 
@@ -24,7 +21,7 @@ try {
     });
     ctx.body = 'Hello World';
   });
-  _server = app.listen(env.NODE_PORT);
+  app.listen(env.NODE_PORT);
 } catch (err) {
   logger.error(err.stack);
 }
