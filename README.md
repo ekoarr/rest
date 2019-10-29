@@ -23,3 +23,8 @@ module alias
 | @config   |
 | @interface|
 | @services |
+
+## Start up the application
+
+run ``` SET NODE_ENV=<DEV|PROD>``` in cmd then run ``` npm run start ```
+
