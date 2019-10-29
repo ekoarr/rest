@@ -1,11 +1,13 @@
 # REST
-
 ___
+
 Rest is a simple Typescript Koa2 api stater. It a project aim to reduce my development costs
 
-### Fetures
-- Joi validation
-- PassportJS authentication
+### Framework Used in this project
+
+- Koa
+- Joi
+- PassportJS
 
 
 ## Model
