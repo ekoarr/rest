@@ -1,7 +1,7 @@
 # REST
 ___
 
-Rest is a simple Typescript Koa2 api stater. It a project aim to reduce my development costs
+Rest is a simple Typescript Koa2 api stater. It is a project aim to reduce my development costs
 
 ### Framework Used in this project
 
