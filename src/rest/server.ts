@@ -3,11 +3,12 @@ import * as  Koa from 'koa';
 import * as middlewares from './middleware';
 // import { initRoutes } from './routes';
 import { Server } from 'http';
+import * as routers from './routes';
+import * as auth from '@services/auth';
 import { logger } from '@config/logger';
 import { MIDDLEWARES, CONFIG} from '@interfaces/type';
 import  errorHandler from '@services/errorHandler';
-import * as routers from './routes';
-import bodyParser = require("koa-bodyparser");
+
 export default class App extends Koa {
   readonly servers: Server[];
 
@@ -17,6 +18,7 @@ export default class App extends Koa {
     this._configureMiddlewares(middlewares);
     this._configureRoutes();
     this._configErrorHandler();
+    this._configAuth();
   }
 
   private _configureRoutes(): void {
@@ -29,12 +31,17 @@ export default class App extends Koa {
   private _configureMiddlewares(middlewareConfig: MIDDLEWARES): void {
     for (const name in middlewares) {
       logger.info(`Middleware '${name}' is Loaded~`);
-      this.use(middlewares[name]());
+      this.use(middlewares[name](this));
     }
   }
 
   private _configErrorHandler():void {
     this.on('error', errorHandler());
+  }
+
+  private _configAuth():void {
+    this.use(auth.passport.initialize());
+    this.use(auth.passport.session());
   }
 
   private _configureValiator():void {

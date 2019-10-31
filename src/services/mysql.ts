@@ -12,7 +12,7 @@ const db: DB_CONNECTION = Object.create({});
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-var folders:Array<string> = WalkDir(fs, COMPONENT);
+var folders = WalkDir(fs, COMPONENT);
   for(const folder of folders){
   let path = `${COMPONENT}/${folder}/model.ts`;
   let model = require(path).default;

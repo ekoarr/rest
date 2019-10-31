@@ -3,7 +3,7 @@ import { JOI_SCHEMA } from "@interfaces/type";
 
 function validateObj(object: Object = {}, label: string, schema: JOI_SCHEMA, options?: Object) {
   if (schema) {
-    const { error, value } = Joi.validate(object, schema, options);
+    const { error } = Joi.validate(object, schema, options);
     if (error) throw new Error(`Invalida ${label} - ${error.message}`);
   }
 }

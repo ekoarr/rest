@@ -1,5 +1,5 @@
 import bodyParser = require("koa-bodyparser");
 
-export default function(options:Object={}){
+export default function(app){
   return bodyParser();
 }

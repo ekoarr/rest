@@ -15,7 +15,7 @@ addColors({
   debug: 'green'
 });
 
-let _logger = createLogger({
+export const logger = createLogger({
   level: 'debug',
   defaultMeta: { service: 'user-service' },
   transports: [
@@ -26,13 +26,3 @@ let _logger = createLogger({
     format.simple()
   )
 });
-
-
-// if (process.env.NODE_ENV !== 'production') {
-//   _logger.add(new transports.Console({
-//     level: 'debug',
-//     format: format.simple()
-//   }));
-// }
-
-export const logger = _logger;

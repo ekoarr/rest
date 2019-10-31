@@ -1,9 +1,12 @@
 interface MIDDLEWARES {
   [key: string]: Object
 }
+interface DB_MODEL {
+  [key: string]: any
+}
 
 interface DB_CONNECTION {
-  [key: string]: any
+  [key: string]: DB_MODEL
 }
 
 interface CONFIG {

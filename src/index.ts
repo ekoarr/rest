@@ -3,7 +3,7 @@ import 'module-alias/register';
 import Server from "./rest/server";
 import { env } from '@config/globals';
 import { logger } from '@config/logger';
-const app:Server = new Server({
+const app = new Server({
   middlewares: {
     bodyParser: {
       enableTypes: ['json'],
@@ -11,9 +11,9 @@ const app:Server = new Server({
     }
   }
 });
+
 try {
  console.log('excute order json response')
-
   app.use(async ctx => {
     logger.debug({
       level: 'info',
