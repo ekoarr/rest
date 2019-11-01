@@ -12,7 +12,6 @@ const WalkDir = (fs: any, dir: string) => {
   return folders;
 }
 
-
 export {
   Compose,
   WalkDir
