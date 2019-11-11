@@ -1,4 +1,4 @@
-# REST
+# REST (under development)
 
 Rest is a simple Typescript Koa2 api stater. It's my first typescript program and is a project aim to reduce my development costs
 
