@@ -16,7 +16,7 @@ passport.use(new LocalStrategy(options, (username, password, done)=>{
    }else{
      return done(null,false);
    }
-}))
+}));
 
 export {
   passport

@@ -1,9 +1,9 @@
-import MYSQL from '@services/mysql'; 
 import { Context } from "koa";
-const { article } = MYSQL;
+import * as Service from './service';
 async function getArticles(ctx:Context , next) {
   try{
-    let articles = await article.findAll({});
+    const result = await Service.getArticles();
+    ctx.body = result;
     await next();
     console.log('this excute after hello world is printed');
   }catch(err)
